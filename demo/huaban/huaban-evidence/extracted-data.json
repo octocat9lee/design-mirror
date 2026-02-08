@@ -1,0 +1,252 @@
+{
+  "meta": {
+    "url": "https://huaban.com/materials",
+    "title": "花瓣素材-设计素材图库-专业设计模版下载",
+    "extractedAt": "2026-02-08T07:13:23.676Z",
+    "projectName": "huaban"
+  },
+  "viewport": {
+    "width": 1770,
+    "height": 890,
+    "scrollWidth": 1755,
+    "scrollHeight": 4444
+  },
+  "colors": {
+    "primary": "rgb(255, 40, 75)",
+    "bannerBackground": "rgb(197, 22, 1)",
+    "textPrimary": "rgb(30, 32, 35)",
+    "textSecondary": "rgba(30, 32, 35, 0.65)",
+    "textTertiary": "rgba(30, 32, 35, 0.45)",
+    "textWhite": "rgb(255, 255, 255)",
+    "textDark": "rgb(34, 37, 41)",
+    "textMuted": "rgb(138, 142, 145)",
+    "bgWhite": "rgb(255, 255, 255)",
+    "bgGray": "rgb(247, 247, 247)",
+    "bgLight": "rgb(247, 249, 250)",
+    "bgCard": "rgb(237, 242, 245)",
+    "bgCalendarActive": "rgb(252, 242, 246)",
+    "borderCalendarActive": "rgb(255, 230, 238)"
+  },
+  "typography": {
+    "fontFamily": "\"Alibaba Sans\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", \"Hiragino Sans GB\", \"Helvetica Neue\", Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
+    "fontFamilyChinese": "\"PingFang SC\", \"Microsoft YaHei\", \"Hiragino Sans GB\", \"WenQuanYi Micro Hei\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\"",
+    "fontSize": "14px",
+    "lineHeight": "22.001px"
+  },
+  "layout": {
+    "sidebarWidth": "84px",
+    "headerHeight": "80px",
+    "bannerHeight": "60px",
+    "contentMaxWidth": "1296px"
+  },
+  "borderRadius": {
+    "sm": "4px",
+    "md": "8px",
+    "lg": "12px",
+    "xl": "24px",
+    "pill": "44px",
+    "full": "999px"
+  },
+  "motion": {
+    "fast": "0.15s",
+    "normal": "0.2s",
+    "slow": "0.3s",
+    "easings": [
+      "ease",
+      "ease-in-out",
+      "cubic-bezier(0.645, 0.045, 0.355, 1)"
+    ]
+  },
+  "assets": {
+    "fonts": {
+      "loaded": [
+        {
+          "family": "Satoshi",
+          "weight": "normal",
+          "style": "normal",
+          "status": "unloaded"
+        }
+      ],
+      "stacks": [
+        "\"Alibaba Sans\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", \"Hiragino Sans GB\", \"Helvetica Neue\", Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\""
+      ]
+    },
+    "icons": {
+      "type": "inline-svg",
+      "library": "custom",
+      "count": 98
+    },
+    "libraries": {
+      "detected": ["slick"]
+    },
+    "images": {
+      "formats": ["svg", "png", "jpg"],
+      "lazyLoading": true,
+      "cdnPatterns": [
+        "gd-hbimg-other.huaban.com",
+        "grocery-cdn.huaban.com",
+        "st0.dancf.com",
+        "cdn.dancf.com",
+        "gaoding-market.dancf.com",
+        "gd-hbimg-edge.huaban.com"
+      ],
+      "count": 186
+    }
+  },
+  "components": {
+    "searchBar": {
+      "height": "40px",
+      "borderRadius": "24px",
+      "backgroundColor": "transparent",
+      "buttonColor": "rgb(255, 40, 75)"
+    },
+    "calendarCard": {
+      "width": "196px",
+      "height": "64px",
+      "borderRadius": "12px",
+      "backgroundColor": "rgb(247, 249, 250)",
+      "activeBackgroundColor": "rgb(252, 242, 246)",
+      "activeBorderColor": "rgb(255, 230, 238)"
+    },
+    "topicCard": {
+      "width": "306px",
+      "height": "177px",
+      "borderRadius": "12px"
+    },
+    "trendCard": {
+      "width": "240px",
+      "height": "280px",
+      "borderRadius": "12px",
+      "backgroundColor": "rgb(255, 255, 255)"
+    },
+    "categoryCard": {
+      "width": "240px",
+      "height": "320px",
+      "borderRadius": "12px",
+      "backgroundColor": "rgb(237, 242, 245)"
+    },
+    "elementCard": {
+      "width": "196px",
+      "height": "336px"
+    },
+    "videoCard": {
+      "width": "240px",
+      "height": "320px",
+      "borderRadius": "12px",
+      "backgroundColor": "rgb(237, 242, 245)"
+    },
+    "sidebarNavItem": {
+      "width": "44px",
+      "height": "44px",
+      "borderRadius": "44px"
+    },
+    "vipCard": {
+      "borderRadius": "12px",
+      "background": "linear-gradient(135deg, #fff5f5, #ffe8e8)"
+    },
+    "button": {
+      "primary": {
+        "backgroundColor": "rgb(255, 40, 75)",
+        "color": "rgb(255, 255, 255)",
+        "borderRadius": "24px",
+        "transition": "0.15s cubic-bezier(0.645, 0.045, 0.355, 1)"
+      }
+    }
+  },
+  "sections": [
+    {
+      "name": "topBanner",
+      "rect": { "x": 0, "y": 0, "width": 1755, "height": 60 },
+      "backgroundColor": "rgb(197, 22, 1)"
+    },
+    {
+      "name": "sidebar",
+      "rect": { "x": 0, "y": 60, "width": 84, "height": 830 },
+      "position": "fixed"
+    },
+    {
+      "name": "header",
+      "rect": { "x": 100, "y": 76, "width": 1522, "height": 48 },
+      "position": "relative"
+    },
+    {
+      "name": "heroSection",
+      "rect": { "x": 272, "y": 140, "width": 1296, "height": 178 },
+      "layout": "flex"
+    },
+    {
+      "name": "topicCards",
+      "rect": { "x": 272, "y": 334, "width": 1296, "height": 177 },
+      "layout": "flex",
+      "gap": "24px"
+    },
+    {
+      "name": "calendarSection",
+      "rect": { "x": 272, "y": 560, "width": 1296, "height": 423 }
+    },
+    {
+      "name": "trendSection",
+      "rect": { "x": 272, "y": 1032, "width": 1296, "height": 404 }
+    },
+    {
+      "name": "categorySection_elements",
+      "rect": { "x": 272, "y": 1485, "width": 1296, "height": 400 },
+      "title": "免抠元素"
+    },
+    {
+      "name": "categorySection_industry",
+      "rect": { "x": 272, "y": 1934, "width": 1296, "height": 400 },
+      "title": "行业专区"
+    },
+    {
+      "name": "categorySection_templates",
+      "rect": { "x": 272, "y": 2383, "width": 1296, "height": 400 },
+      "title": "平面模板"
+    },
+    {
+      "name": "categorySection_photos",
+      "rect": { "x": 272, "y": 2832, "width": 1296, "height": 400 },
+      "title": "摄影图片"
+    },
+    {
+      "name": "categorySection_videos",
+      "rect": { "x": 272, "y": 3281, "width": 1296, "height": 400 },
+      "title": "视频营销"
+    },
+    {
+      "name": "vipPromoSection",
+      "rect": { "x": 272, "y": 3729, "width": 1296, "height": 256 }
+    },
+    {
+      "name": "footer",
+      "rect": { "x": 272, "y": 4057, "width": 1296, "height": 387 },
+      "padding": "40px 40px 24px"
+    }
+  ],
+  "interactions": {
+    "buttons": {
+      "totalCount": 3,
+      "primaryButton": {
+        "transition": "0.15s cubic-bezier(0.645, 0.045, 0.355, 1)",
+        "hoverEffect": "background-color change"
+      }
+    },
+    "links": {
+      "totalCount": 139,
+      "transition": "color 0.3s ease"
+    },
+    "cards": {
+      "hoverEffect": "transform: scale(1.02) or translateY(-4px)",
+      "transition": "transform 0.2s ease-in-out"
+    }
+  },
+  "sectionTitles": [
+    { "title": "热点日历", "hasMoreLink": true },
+    { "title": "设计趋势", "hasMoreLink": false },
+    { "title": "免抠元素", "subtitle": "爆款元素上新，多系列多风格", "hasTabs": true },
+    { "title": "行业专区", "subtitle": "各行业素材精选，让您的营销事半功倍", "hasTabs": true },
+    { "title": "平面模板", "subtitle": "海量高质量模板，即下即用效率UP", "hasTabs": true },
+    { "title": "摄影图片", "subtitle": "商用无忧，千万级高清图库", "hasTabs": true },
+    { "title": "视频营销", "subtitle": "快速实现视频制作", "hasTabs": true }
+  ]
+}
