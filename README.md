@@ -1,22 +1,40 @@
-# design-mirror
+# Design Mirror
 
-## 前提条件
+Mirror any web UI with precision. This skill extracts complete design systems from websites — colors, typography, spacing, layout, components, and motion — then generates documentation and standalone replica pages for visual verification.
+
+## Quick Start
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/user/design-mirror.git
+cd design-mirror
+
+# 2. Start Claude Code
+claude
+
+# 3. Use the skill
+/design-mirror https://example.com
+```
+
+No installation required — the skill is automatically available when you run Claude Code in this directory.
+
+## Prerequisites
 
 ### 1. Node.js
 
-确保安装了 Node.js：
+Ensure Node.js is installed:
 
 ```bash
 node -v
 ```
 
-### 2. Chrome 浏览器
+### 2. Chrome Browser
 
-需要安装 Chrome 浏览器（稳定版即可）。
+Chrome browser is required (stable version).
 
-### 3. 配置 chrome-devtools-mcp
+### 3. Configure chrome-devtools-mcp
 
-在项目根目录下创建 `.mcp.json` 文件：
+Create a `.mcp.json` file in the project root (already included):
 
 ```json
 {
@@ -30,37 +48,64 @@ node -v
 }
 ```
 
-### 4. 验证 MCP 连接
+### 4. Verify MCP Connection
 
-在项目目录下启动 Claude Code，然后运行以下命令验证连接是否成功：
+Start Claude Code in the project directory, then verify the connection:
 
 ```bash
 claude mcp list
 ```
 
-如果显示 `chrome-devtools: ... ✓ Connected`，说明配置成功。
+If you see `chrome-devtools: ... ✓ Connected`, the configuration is successful.
 
-> **注意**：`chrome-devtools-mcp` 会自动启动一个带有远程调试端口的 Chrome 实例，无需手动配置。
+> **Note**: `chrome-devtools-mcp` will automatically launch a Chrome instance with remote debugging port. No manual configuration needed.
 
-## 提示词
-使用`bypass permissions on`启动`claude code`
-```
+## Usage
+
+### Basic Usage
+
+Start Claude Code with bypass permissions (recommended for automation):
+
+```bash
 claude --dangerously-skip-permissions
 ```
-在命令行使用如下的英文或者中文提示词：
-``` prompt
+
+Then use the skill:
+
+```
 /design-mirror create an exact replica of the homepage at https://motherduck.com/ and generate the corresponding HTML, CSS, and JavaScript files. Name the project: motherduck
 ```
-中文提示词：
-``` prompt
-/design-mirror 对https://motherduck.com/的首页进行一模一样的复刻，并生成对应的html、css以及js文件，项目名称为：motherduck
+
+Chinese prompt:
+
+```
+/design-mirror 对 https://motherduck.com/ 的首页进行一模一样的复刻，并生成对应的 html、css 以及 js 文件，项目名称为：motherduck
 ```
 
-初步复刻之后，根据实际情况进行下一步的校验和修正：
+### Validation & Refinement
+
+After initial replication, validate and refine the details:
+
 ```
-请使用chrome-devtools-mcp对原始的页面以及复刻的网页进行逐步的细节校验，然后修正不一致的地方。
+请使用 chrome-devtools-mcp 对原始的页面以及复刻的网页进行逐步的细节校验，然后修正不一致的地方。
 ```
-如果中间发生提示文件过大的错误，使用`/compact`指令对上下文进行整理，然后使用如下指令继续修正：
+
+If you encounter context limit errors, use `/compact` to compress the context, then continue:
+
 ```
-继续使用chrome-devtools-mcp对原始的页面以及复刻的网页进行逐步的细节校验，然后修正不一致的地方。
+继续使用 chrome-devtools-mcp 对原始的页面以及复刻的网页进行逐步的细节校验，然后修正不一致的地方。
+```
+
+## Output Structure
+
+All generated files are saved under `./style/`:
+
+```
+style/
+├── <project>-style.md              # Style guide document
+├── <project>-evidence/             # Extraction evidence (JSON/CSS/JS)
+└── <project>-replica/              # Replica page
+    ├── index.html
+    ├── styles.css
+    └── scripts.js
 ```
