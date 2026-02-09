@@ -76,7 +76,7 @@ style/
 > - Phase 2.5: Font loading preparation
 > - Phase 3: Write Style Guide documentation
 > - Phase 4: Generate Replica page
-> - **Phase 4.5: Component-level style validation (CRITICAL for accuracy)** ⬅️ Most commonly skipped step
+> - **Phase 4.5: Component-level style validation (CRITICAL for accuracy)**
 
 ### Phase 0 — Inputs
 
@@ -391,7 +391,7 @@ mcp__chrome-devtools__take_screenshot({
 
 #### Step 2: Validate & Compress (MANDATORY)
 
-> ⚠️ **Each screenshot MUST be validated for size and compressed immediately after saving**
+> **Each screenshot MUST be validated for size and compressed immediately after saving**
 
 ```bash
 # Check file sizes
@@ -563,7 +563,7 @@ style/
 ### Layout Replica Requirements
 
 **0. Layout Structure (CRITICAL)**
-- ⚠️ **Strictly follow** the page structure extracted by `__dmLayout.skeleton()`
+- **Strictly follow** the page structure extracted by `__dmLayout.skeleton()`
 - Section order must exactly match the original page
 - Internal section layouts (flex/grid direction, gap, alignment) must match
 - **Prohibited**: Reorganizing content into "showcase" or "component gallery" format
@@ -666,7 +666,7 @@ Generate placeholders based on `imageDimensions` and `componentInternals` data:
 | Background images | `componentInternals.background.size` | Use gradient with similar color tone |
 | Thumbnails | `componentInternals.children[n].dimensions` | Exact match dimensions and border-radius |
 
-**⚠️ Prohibited:**
+**Prohibited:**
 - Using fixed generic dimensions (e.g., 100x100)
 - Ignoring `aspectRatio`
 - Omitting icon/thumbnail placeholders inside components
@@ -1085,7 +1085,7 @@ After generating the replica page:
 5. **Animation test**: Check transitions and keyframe animations
 6. **Responsive test**: Resize browser to test breakpoints
 7. **Accessibility test**: Tab through elements, check focus styles
-8. **⚠️ Component-Level Style Validation** (Phase 4.5): Verify exact style values for each component
+8. **Component-Level Style Validation** (Phase 4.5): Verify exact style values for each component
 
 ---
 

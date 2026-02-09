@@ -2,9 +2,9 @@
 
 ## 前提条件
 
-### 1. Node.js 22+
+### 1. Node.js
 
-确保安装了 Node.js 22 或更高版本：
+确保安装了 Node.js：
 
 ```bash
 node -v
@@ -49,10 +49,18 @@ claude --dangerously-skip-permissions
 ```
 在命令行使用如下的英文或者中文提示词：
 ``` prompt
-/design-mirror create an exact replica of the homepage at https://motherduck.com/ and generate the corresponding HTML, CSS, and JavaScript files. Name the project: motherfuck
+/design-mirror create an exact replica of the homepage at https://motherduck.com/ and generate the corresponding HTML, CSS, and JavaScript files. Name the project: motherduck
 ```
 中文提示词：
 ``` prompt
-/design-mirror 对https://motherduck.com/的首页进行一模一样的复刻，并生成对应的html、css以及js文件，项目名称为：motherfuck 
+/design-mirror 对https://motherduck.com/的首页进行一模一样的复刻，并生成对应的html、css以及js文件，项目名称为：motherduck
 ```
 
+初步复刻之后，根据实际情况进行下一步的校验和修正：
+```
+请使用chrome-devtools-mcp对原始的页面以及复刻的网页进行逐步的细节校验，然后修正不一致的地方。
+```
+如果中间发生提示文件过大的错误，使用`/compact`指令对上下文进行整理，然后使用如下指令继续修正：
+```
+继续使用chrome-devtools-mcp对原始的页面以及复刻的网页进行逐步的细节校验，然后修正不一致的地方。
+```

@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MotherDuck | The Serverless Data Warehouse Built on DuckDB</title>
+
+  <!-- Google Fonts - Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Aeonik Mono (using fallback monospace as it's a premium font) -->
+  <style>
+    @font-face {
+      font-family: 'Aeonik Mono';
+      src: local('SF Mono'), local('Menlo'), local('Monaco'), local('Consolas');
+      font-weight: 400;
+      font-style: normal;
+    }
+  </style>
+
+  <link rel="stylesheet" href="styles.css?v=5">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <!-- Duck Logo SVG -->
+        <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 12C8 8 11 4 16 4C21 4 24 8 24 12" stroke="#F5A623" stroke-width="3" fill="none"/>
+          <circle cx="12" cy="10" r="2" fill="#F5A623"/>
+          <circle cx="20" cy="10" r="2" fill="#F5A623"/>
+          <path d="M14 14C14 14 15 16 16 16C17 16 18 14 18 14" stroke="#F5A623" stroke-width="2"/>
+        </svg>
+        MotherDuck
+      </a>
+
+      <nav class="nav-main">
+        <button class="nav-button">
+          PRODUCT
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+            <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          </svg>
+        </button>
+        <button class="nav-button">
+          COMMUNITY
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+            <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          </svg>
+        </button>
+        <button class="nav-button">
+          COMPANY
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+            <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          </svg>
+        </button>
+        <a href="#" class="nav-link">DOCS</a>
+        <a href="#" class="nav-link">PRICING</a>
+        <a href="#" class="nav-link">CONTACT US</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#" class="nav-link">LOG IN</a>
+        <a href="#" class="btn btn-primary">START FREE</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <!-- Decorative cloud -->
+        <div class="hero-decoration hero-cloud">
+          <svg viewBox="0 0 80 60" fill="none" stroke="#383838" stroke-width="2">
+            <ellipse cx="40" cy="40" rx="35" ry="18"/>
+            <circle cx="25" cy="30" r="15"/>
+            <circle cx="50" cy="28" r="12"/>
+          </svg>
+        </div>
+
+        <div class="hero-content">
+          <h1>INFRASTRUCTURE<br>FOR ANSWERS</h1>
+          <p class="hero-subtitle">THE DATA WAREHOUSE BUILT FOR ANSWERS, IN SQL OR NATURAL LANGUAGE.</p>
+
+          <div class="hero-actions">
+            <a href="#" class="btn btn-primary">TRY 21 DAYS FREE</a>
+            <a href="#" class="link-underline">LEARN MORE</a>
+            <a href="#" class="link-underline">BOOK A DEMO</a>
+          </div>
+        </div>
+
+        <!-- Hero Demo Box -->
+        <div class="hero-demo">
+          <div class="demo-tabs">
+            <button class="demo-tab active">
+              <svg class="demo-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <path d="M9 9h6M9 13h6M9 17h4"/>
+              </svg>
+              SQL
+            </button>
+            <button class="demo-tab">
+              <svg class="demo-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
+              </svg>
+              AI
+            </button>
+            <button class="demo-tab">
+              <svg class="demo-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                <path d="M8 12h8M12 8v8"/>
+              </svg>
+              & more
+            </button>
+          </div>
+          <div class="demo-content">
+            <div class="code-editor">
+              <div class="code-filename">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6FC2FF" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                </svg>
+                pipeline.py
+              </div>
+              <pre class="code-block"><span class="code-keyword">import</span> duckdb
+
+<span class="code-comment"># Connect to DuckDB and attach MotherDuck</span>
+con = duckdb.connect()
+con.execute(<span class="code-string">"ATTACH 'md:'"</span>)
+
+<span class="code-comment"># Query to get 2025 revenue</span>
+query = <span class="code-string">"""
+SELECT
+    EXTRACT(YEAR FROM o.order_date) as year,
+    ROUND(SUM(od.unit_price * od.quantity * (1 - od.discount)), 2) as revenue
+FROM orders o
+JOIN order_details od ON CAST(o.order_id AS VARCHAR) = CAST(od.order_id AS VARCHAR)
+WHERE EXTRACT(YEAR FROM o.order_date) = 2025
+GROUP BY EXTRACT(YEAR FROM o.order_date)
+"""</span>
+
+<span class="code-comment"># Execute and print results</span>
+result = con.execute(query).fetchall()</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Decorative elements -->
+        <div class="hero-decoration" style="position: absolute; right: 200px; top: 100px;">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#6FC2FF" stroke-width="2">
+            <polygon points="20,2 38,20 20,38 2,20"/>
+          </svg>
+        </div>
+        <div class="hero-decoration" style="position: absolute; right: 80px; top: 280px;">
+          <svg width="60" height="80" viewBox="0 0 60 80" fill="#53DBC9">
+            <ellipse cx="30" cy="70" rx="25" ry="8"/>
+            <rect x="5" y="10" width="50" height="60" rx="25" fill="#53DBC9"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Book Promo Section -->
+    <section class="book-promo container" id="free-duckdb-book">
+      <div class="book-image">
+        <svg width="150" height="200" viewBox="0 0 150 200">
+          <rect width="150" height="200" rx="4" fill="#e8f4f8"/>
+          <text x="75" y="100" text-anchor="middle" fill="#999" font-size="12">DuckDB Book</text>
+        </svg>
+      </div>
+      <div class="book-form">
+        <h2>"DUCKDB IN ACTION" BOOK FOR FREE</h2>
+        <p>Get the complete book for free in your inbox!</p>
+        <form>
+          <div class="form-group">
+            <input type="email" class="form-input" placeholder="Work Email">
+          </div>
+          <div class="form-group">
+            <label class="checkbox-group">
+              <input type="checkbox" checked>
+              Subscribe to MotherDuck news
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="checkbox-group">
+              <input type="checkbox" checked>
+              Subscribe to DuckDB ecosystem newsletter
+            </label>
+          </div>
+          <button type="submit" class="btn btn-disabled" disabled>SUBMIT</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Yellow Marquee -->
+    <section class="marquee-section marquee-yellow">
+      <div class="marquee-track">
+        <div class="marquee-content">
+          <span class="marquee-text">DATA WAREHOUSE + AI</span>
+          <span class="marquee-text">DATA WAREHOUSE + AI</span>
+          <span class="marquee-text">DATA WAREHOUSE + AI</span>
+          <span class="marquee-text">DATA WAREHOUSE + AI</span>
+          <span class="marquee-text">DATA WAREHOUSE + AI</span>
+          <span class="marquee-text">DATA WAREHOUSE + AI</span>
+        </div>
+        <div class="marquee-content">
+          <span class="marquee-text">DATA WAREHOUSE + AI</span>
+          <span class="marquee-text">DATA WAREHOUSE + AI</span>
+          <span class="marquee-text">DATA WAREHOUSE + AI</span>
+          <span class="marquee-text">DATA WAREHOUSE + AI</span>
+          <span class="marquee-text">DATA WAREHOUSE + AI</span>
+          <span class="marquee-text">DATA WAREHOUSE + AI</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Data Warehouse + AI Section -->
+    <section class="dw-ai-section">
+      <div class="container">
+        <h2 class="text-center mb-lg" style="color: white;">DATA WAREHOUSE + AI</h2>
+
+        <div class="dw-ai-grid">
+          <div class="dw-ai-card">
+            <div class="dw-ai-card-image">
+              <!-- Placeholder for Hypertenancy illustration -->
+              <svg width="100%" height="100%" viewBox="0 0 300 250">
+                <rect width="300" height="250" fill="#e0f7fa"/>
+                <text x="150" y="125" text-anchor="middle" fill="#999" font-size="14">Hypertenancy Illustration</text>
+              </svg>
+            </div>
+            <div class="dw-ai-card-content">
+              <h3>HYPERTENANCY DATA WAREHOUSE</h3>
+              <p>Scale per-user compute nodes independently, serving sub-second latency without resource contention.</p>
+              <a href="#" class="btn btn-secondary">LEARN MORE</a>
+            </div>
+          </div>
+
+          <div class="dw-ai-card">
+            <div class="dw-ai-card-image">
+              <!-- Placeholder for MCP Server illustration -->
+              <svg width="100%" height="100%" viewBox="0 0 300 250">
+                <rect width="300" height="250" fill="#e0f7fa"/>
+                <text x="150" y="125" text-anchor="middle" fill="#999" font-size="14">MCP Server Illustration</text>
+              </svg>
+            </div>
+            <div class="dw-ai-card-content">
+              <h3>MOTHERDUCK MCP SERVER</h3>
+              <p>Turn natural language questions into accurate, traceable SQL queries with fully sandboxed compute.</p>
+              <a href="#" class="btn btn-secondary">LEARN MORE</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who Is It For Section -->
+    <section class="who-section">
+      <div class="container">
+        <h2>WHO IS IT FOR?</h2>
+        <p class="who-subtitle">Analytics that works for everyone</p>
+
+        <div class="who-cards">
+          <a href="#" class="who-card">
+            <div class="who-card-image">
+              <!-- Duck with laptop illustration -->
+              <svg width="150" height="150" viewBox="0 0 150 150">
+                <circle cx="75" cy="75" r="60" fill="#f5f5f5"/>
+                <text x="75" y="80" text-anchor="middle" fill="#999" font-size="12">Coding Duck</text>
+              </svg>
+            </div>
+            <h3>SOFTWARE ENGINEERS</h3>
+            <p>Who ended up with a big data problem</p>
+          </a>
+
+          <a href="#" class="who-card">
+            <div class="who-card-image">
+              <!-- Duck scientist illustration -->
+              <svg width="150" height="150" viewBox="0 0 150 150">
+                <circle cx="75" cy="75" r="60" fill="#f5f5f5"/>
+                <text x="75" y="80" text-anchor="middle" fill="#999" font-size="12">Scientist Duck</text>
+              </svg>
+            </div>
+            <h3>DATA SCIENTISTS</h3>
+            <p>Who ended up having to do data engineering</p>
+          </a>
+
+          <a href="#" class="who-card">
+            <div class="who-card-image">
+              <!-- Duck plumber illustration -->
+              <svg width="150" height="150" viewBox="0 0 150 150">
+                <circle cx="75" cy="75" r="60" fill="#f5f5f5"/>
+                <text x="75" y="80" text-anchor="middle" fill="#999" font-size="12">Plumber Duck</text>
+              </svg>
+            </div>
+            <h3>DATA ENGINEERS</h3>
+            <p>With slow, brittle pipelines</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use Cases Marquee -->
+    <section class="marquee-section" style="background: var(--color-bg-body);">
+      <div class="marquee-track">
+        <div class="marquee-content">
+          <span class="marquee-text">USE CASES</span>
+          <span class="marquee-text">USE CASES</span>
+          <span class="marquee-text">USE CASES</span>
+          <span class="marquee-text">USE CASES</span>
+          <span class="marquee-text">USE CASES</span>
+          <span class="marquee-text">USE CASES</span>
+        </div>
+        <div class="marquee-content">
+          <span class="marquee-text">USE CASES</span>
+          <span class="marquee-text">USE CASES</span>
+          <span class="marquee-text">USE CASES</span>
+          <span class="marquee-text">USE CASES</span>
+          <span class="marquee-text">USE CASES</span>
+          <span class="marquee-text">USE CASES</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="use-cases-section">
+      <div class="container">
+        <h2 class="mb-lg">USE CASES</h2>
+
+        <div class="use-cases-content">
+          <div class="use-case-images">
+            <div class="use-case-image">
+              <svg width="100%" height="100%" viewBox="0 0 250 300">
+                <rect width="250" height="300" rx="8" fill="#e8f4f8"/>
+                <text x="125" y="150" text-anchor="middle" fill="#999" font-size="12">Data Teams Ducks</text>
+              </svg>
+            </div>
+          </div>
+
+          <div class="use-case-text">
+            <h3>DATA WAREHOUSING</h3>
+            <p>Is your data all over the place? Start making sense of your business by bringing it together for internal business intelligence and analytics. Build pure SQL pipelines, share data and quickly collaborate with your team.</p>
+            <div class="use-case-links">
+              <a href="#" class="btn btn-secondary">HOW IT WORKS</a>
+              <a href="#" class="btn btn-secondary">CASE STUDIES</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="use-cases-content mt-lg">
+          <div class="use-case-text">
+            <h3>CUSTOMER-FACING ANALYTICS</h3>
+            <p>Unlike traditional BI, customer-facing analytics is built directly into your product for end users. It delivers near real-time, low-latency insights at scale -- think milliseconds, not minutes -- and must handle thousands to millions of concurrent queries. MotherDuck's architecture, from per-user tenancy to Wasm support, is designed for the unique requirements of Customer-Facing Analytics to drive increased user engagement directly in your app experience.</p>
+            <div class="use-case-links">
+              <a href="#" class="btn btn-secondary">HOW IT WORKS</a>
+              <a href="#" class="btn btn-secondary">CASE STUDIES</a>
+            </div>
+          </div>
+
+          <div class="use-case-images">
+            <div class="use-case-image">
+              <svg width="100%" height="100%" viewBox="0 0 250 300">
+                <rect width="250" height="300" rx="8" fill="#e8f4f8"/>
+                <text x="125" y="150" text-anchor="middle" fill="#999" font-size="12">App Devs Ducks</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How We Scale Section -->
+    <section class="scale-section">
+      <div class="container">
+        <h2>HOW WE SCALE</h2>
+
+        <div class="duckling-section">
+          <h3>DUCKLING SIZES</h3>
+          <p>MotherDuck's per-user tenancy model gives each user an isolated <u>duckling</u> (DuckDB instance) in one of five sizes to enable individual, user-level configuration.</p>
+
+          <div class="duckling-sizes">
+            <div class="duckling-card">
+              <div class="duckling-icon">
+                <svg width="100" height="100" viewBox="0 0 100 100">
+                  <rect width="100" height="100" rx="8" fill="#e0f7fa"/>
+                  <text x="50" y="55" text-anchor="middle" fill="#999" font-size="10">Pulse</text>
+                </svg>
+              </div>
+              <h4>PULSE</h4>
+              <p>Our smallest instance, perfect for ad-hoc analytics tasks</p>
+            </div>
+
+            <div class="duckling-card">
+              <div class="duckling-icon">
+                <svg width="100" height="100" viewBox="0 0 100 100">
+                  <rect width="100" height="100" rx="8" fill="#b2ebf2"/>
+                  <text x="50" y="55" text-anchor="middle" fill="#666" font-size="10">Standard</text>
+                </svg>
+              </div>
+              <h4>STANDARD</h4>
+              <p>Built to handle common data warehouse workloads</p>
+            </div>
+
+            <div class="duckling-card">
+              <div class="duckling-icon">
+                <svg width="100" height="100" viewBox="0 0 100 100">
+                  <rect width="100" height="100" rx="8" fill="#80deea"/>
+                  <text x="50" y="55" text-anchor="middle" fill="#666" font-size="10">Jumbo</text>
+                </svg>
+              </div>
+              <h4>JUMBO</h4>
+              <p>For larger data warehouse workloads with many transformations</p>
+            </div>
+
+            <div class="duckling-card">
+              <div class="duckling-icon">
+                <svg width="100" height="100" viewBox="0 0 100 100">
+                  <rect width="100" height="100" rx="8" fill="#4dd0e1"/>
+                  <text x="50" y="55" text-anchor="middle" fill="#fff" font-size="10">Mega</text>
+                </svg>
+              </div>
+              <h4>MEGA</h4>
+              <p>An extremely large instance for complex transformations done quickly</p>
+            </div>
+
+            <div class="duckling-card">
+              <div class="duckling-icon">
+                <svg width="100" height="100" viewBox="0 0 100 100">
+                  <rect width="100" height="100" rx="8" fill="#26c6da"/>
+                  <text x="50" y="55" text-anchor="middle" fill="#fff" font-size="10">Giga</text>
+                </svg>
+              </div>
+              <h4>GIGA</h4>
+              <p>Largest instances enable the toughest transformations to run faster</p>
+            </div>
+          </div>
+
+          <p class="text-center">
+            TAKE A CLOSER LOOK AT <a href="#" class="link-underline">DUCKLING SIZES</a>
+          </p>
+        </div>
+
+        <div class="scale-diagram mt-lg">
+          <h3>PER-USER TENANCY AND VERTICAL SCALING</h3>
+          <p>MotherDuck employs a per-user tenancy and vertical scaling strategy. Users connect to their own MotherDuck Ducklings (DuckDB instances), which are sized (pulse, standard, jumbo, mega, giga) to meet their specific needs.</p>
+          <div class="diagram-placeholder">
+            Per-User Tenancy Diagram
+          </div>
+        </div>
+
+        <div class="scale-diagram">
+          <h3>READ SCALING</h3>
+          <p>MotherDuck's read scaling capabilities allow users to connect via a BI Tool to dedicated Ducklings that function as read replicas.</p>
+          <div class="diagram-placeholder">
+            Read Scaling Diagram
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ecosystem Section -->
+    <section class="ecosystem-section">
+      <div class="container">
+        <h2>ECOSYSTEM</h2>
+        <p class="ecosystem-subtitle">MODERN DUCK STACK</p>
+
+        <div class="ecosystem-grid">
+          <a href="#" class="ecosystem-item">BUSINESS INTELLIGENCE</a>
+          <a href="#" class="ecosystem-item">INGESTION</a>
+          <a href="#" class="ecosystem-item">DATA SCIENCE & AI</a>
+          <a href="#" class="ecosystem-item">REVERSE ETL</a>
+          <a href="#" class="ecosystem-item">TRANSFORMATION</a>
+          <a href="#" class="ecosystem-item">DEV TOOLS</a>
+          <a href="#" class="ecosystem-item">ORCHESTRATION</a>
+          <a href="#" class="ecosystem-item">DATA QUALITY</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+      <div class="container">
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"We now have a doctor vibe-coding artifacts and tools that can talk to all the data that the company has, run processes, and then actually go and affect them directly."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"></div>
+            <div class="testimonial-info">
+              <h4>Greg Inman</h4>
+              <p>Chief Technology Officer</p>
+            </div>
+          </div>
+          <a href="#" class="link-underline mt-sm" style="display: inline-block;">READ MORE</a>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"MotherDuck is the GOAT"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"></div>
+            <div class="testimonial-info">
+              <h4>Nate Hamm</h4>
+              <p>Sr Software Developer at Reflex</p>
+            </div>
+          </div>
+          <a href="#" class="link-underline mt-sm" style="display: inline-block;">READ MORE</a>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"MotherDuck is insanely performant, and there's no infrastructure to manage. The cost of experimentation is incredibly low -- which means we can afford to ask more questions and build more features, faster."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"></div>
+            <div class="testimonial-info">
+              <h4>Kristov Paulus</h4>
+              <p>Founder, Chief Investment Officer at Kultura Capital</p>
+            </div>
+          </div>
+          <a href="#" class="link-underline mt-sm" style="display: inline-block;">READ MORE</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="community-section">
+      <div class="container">
+        <h2>OUR COMMUNITY</h2>
+
+        <div class="community-grid">
+          <a href="#" class="community-card">
+            <div class="community-author">
+              <div class="community-avatar"></div>
+              <div>
+                <div class="community-name">Ryan Dolley</div>
+                <div class="community-handle">ryandolley</div>
+              </div>
+            </div>
+            <p class="community-text">MotherDuck ... bringing big innovation to SQL to make it more like a real language and less like a 'groovy ancient programming language from the 70s.' Check it out.</p>
+          </a>
+
+          <a href="#" class="community-card">
+            <div class="community-author">
+              <div class="community-avatar"></div>
+              <div>
+                <div class="community-name">Robert Lancer</div>
+                <div class="community-handle">robertlancer</div>
+              </div>
+            </div>
+            <p class="community-text">The progress on the MotherDuck UI is amazing! It went from minimal utility to my preferred place to write SQL in a matter of months</p>
+          </a>
+
+          <a href="#" class="community-card">
+            <div class="community-author">
+              <div class="community-avatar"></div>
+              <div>
+                <div class="community-name">Caleb Fahlgren</div>
+                <div class="community-handle">@calebfahlgren</div>
+              </div>
+            </div>
+            <p class="community-text">The amount of data I am storing in @motherduck rn for a new project is criminal. Decided to try it out since I am a big @duckdb user. Is pretty good so far. Have few hundred million records.</p>
+          </a>
+
+          <a href="#" class="community-card">
+            <div class="community-author">
+              <div class="community-avatar"></div>
+              <div>
+                <div class="community-name">Simon Spati</div>
+                <div class="community-handle">@sspaeti</div>
+              </div>
+            </div>
+            <p class="community-text">I'm just checking a little about the hosted DuckDB by @motherduck. What a nice user experience. It automatically detects errors, and 'accept & run' fixes common errors. Love it.</p>
+          </a>
+
+          <a href="#" class="community-card">
+            <div class="community-author">
+              <div class="community-avatar"></div>
+              <div>
+                <div class="community-name">Jacob Matson</div>
+                <div class="community-handle">@matsonj</div>
+              </div>
+            </div>
+            <p class="community-text">using sql for data cleaning vs excel (reason 879 to learn sql) levenstein distance between 590 strings in excel (350k combinations): excel: 25 mins of spinning. duckdb: 1.2s</p>
+          </a>
+
+          <a href="#" class="community-card">
+            <div class="community-author">
+              <div class="community-avatar"></div>
+              <div>
+                <div class="community-name">evidence</div>
+                <div class="community-handle">@evidence_dev</div>
+              </div>
+            </div>
+            <p class="community-text">DuckDB is increasingly being built into every data tool, but DuckDB isn't designed to be used as a cloud data warehouse @motherduck is solving that problem, and they're doing it in a delightful, uniquely DuckDB way</p>
+          </a>
+        </div>
+
+        <div class="text-center mt-lg">
+          <p>FOLLOW US</p>
+          <div style="display: flex; gap: 16px; justify-content: center; margin-top: 16px;">
+            <a href="#" class="social-icon" style="background: #1DA1F2; border-radius: 50%; width: 40px; height: 40px;">
+              <svg width="20" height="20" fill="white" viewBox="0 0 24 24">
+                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" style="background: #0077B5; border-radius: 50%; width: 40px; height: 40px;">
+              <svg width="20" height="20" fill="white" viewBox="0 0 24 24">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Join The Flock Section -->
+    <section class="flock-section container">
+      <div class="flock-icon">
+        <svg width="150" height="120" viewBox="0 0 150 120">
+          <rect width="150" height="120" rx="16" fill="#6FC2FF"/>
+          <rect x="20" y="30" width="50" height="60" rx="8" fill="white"/>
+          <rect x="80" y="30" width="50" height="60" rx="8" fill="white"/>
+        </svg>
+      </div>
+
+      <div class="flock-content">
+        <h2>JOIN THE FLOCK</h2>
+        <a href="#" class="link-underline">CHAT WITH US ON SLACK</a>
+      </div>
+
+      <div class="slack-preview">
+        <div class="slack-header">
+          <div class="slack-logo">
+            <svg width="40" height="40" viewBox="0 0 40 40">
+              <rect width="40" height="40" rx="8" fill="white"/>
+              <text x="20" y="25" text-anchor="middle" fill="#F5A623" font-size="20">M</text>
+            </svg>
+          </div>
+          <div>
+            <div style="font-weight: 500;">MotherDuck Community</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subscribe Section -->
+    <section class="subscribe-section" id="subscribe">
+      <div class="subscribe-badge">SUBSCRIBE</div>
+      <div class="container">
+        <div class="subscribe-content">
+          <h3>SUBSCRIBE TO OUR NEWSLETTER</h3>
+          <form>
+            <div class="form-group">
+              <input type="email" class="form-input" placeholder="E-mail">
+            </div>
+            <div class="form-group">
+              <label class="checkbox-group">
+                <input type="checkbox" checked>
+                Subscribe to other MotherDuck emails
+              </label>
+            </div>
+            <button type="submit" class="btn btn-disabled" disabled>SUBMIT</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Decorative cloud -->
+      <div style="position: absolute; bottom: 20px; left: 100px;">
+        <svg width="200" height="100" viewBox="0 0 200 100" fill="none" stroke="#383838" stroke-width="2">
+          <ellipse cx="100" cy="70" rx="80" ry="25"/>
+          <circle cx="60" cy="50" r="30"/>
+          <circle cx="130" cy="45" r="25"/>
+        </svg>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="#" class="footer-logo">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <path d="M8 12C8 8 11 4 16 4C21 4 24 8 24 12" stroke="#F5A623" stroke-width="3"/>
+              <circle cx="12" cy="10" r="2" fill="#F5A623"/>
+              <circle cx="20" cy="10" r="2" fill="#F5A623"/>
+            </svg>
+            MotherDuck
+          </a>
+
+          <div class="footer-social">
+            <a href="#" class="social-icon">
+              <svg width="16" height="16" fill="white" viewBox="0 0 24 24">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+            </a>
+            <a href="#" class="social-icon">
+              <svg width="16" height="16" fill="white" viewBox="0 0 24 24">
+                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+              </svg>
+            </a>
+            <a href="#" class="social-icon">
+              <svg width="16" height="16" fill="white" viewBox="0 0 24 24">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
+              </svg>
+            </a>
+            <a href="#" class="social-icon">
+              <svg width="16" height="16" fill="white" viewBox="0 0 24 24">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>MotherDuck</h4>
+          <div class="footer-links">
+            <a href="#" class="footer-link">Docs</a>
+            <a href="#" class="footer-link">Pricing</a>
+          </div>
+          <h4 style="margin-top: 24px;">Recent Webinars</h4>
+          <div class="footer-links">
+            <a href="#" class="footer-link">Duck Flavored BI: Building an Efficient Data Stack</a>
+            <a href="#" class="footer-link">Boosting Data Performance</a>
+            <a href="#" class="footer-link">Beyond BI: Building Data Apps</a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>Product</h4>
+          <div class="footer-links">
+            <a href="#" class="footer-link">Overview</a>
+            <a href="#" class="footer-link">Data Warehousing and BI</a>
+            <a href="#" class="footer-link">Customer-facing Analytics</a>
+            <a href="#" class="footer-link">AI + MCP Server</a>
+            <a href="#" class="footer-link">For DuckDB Users</a>
+            <a href="#" class="footer-link">Postgres Integration</a>
+            <a href="#" class="footer-link">Case Studies</a>
+            <a href="#" class="footer-link">Ecosystem</a>
+            <a href="#" class="footer-link">Support</a>
+            <a href="#" class="footer-link">Trust & Security</a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>Community</h4>
+          <div class="footer-links">
+            <a href="#" class="footer-link">Blog</a>
+            <a href="#" class="footer-link">Slack</a>
+            <a href="#" class="footer-link">Events</a>
+            <a href="#" class="footer-link">YouTube</a>
+            <a href="#" class="footer-link">Small Data SF</a>
+            <a href="#" class="footer-link">Community and OSS</a>
+            <a href="#" class="footer-link">Videos & Streams</a>
+            <a href="#" class="footer-link">DuckDB News</a>
+            <a href="#" class="footer-link">DuckDB Snippets</a>
+            <a href="#" class="footer-link">Free DuckDB Book</a>
+            <a href="#" class="footer-link">Learn</a>
+            <a href="#" class="footer-link">Code of Conduct</a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>Company</h4>
+          <div class="footer-links">
+            <a href="#" class="footer-link">About us</a>
+            <a href="#" class="footer-link">Careers</a>
+            <a href="#" class="footer-link">Quacking</a>
+            <a href="#" class="footer-link">Contact Us</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          <p style="font-size: 14px; opacity: 0.6;">MotherDuck is powered by <a href="#" style="text-decoration: underline;">DuckDB</a></p>
+        </div>
+        <div class="footer-legal">
+          <a href="#">Terms of Use</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Support Policy</a>
+        </div>
+        <div class="footer-badges">
+          <div class="badge-img" style="width: 60px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px;">SOC</div>
+          <div class="badge-img" style="width: 60px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px;">GDPR</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
